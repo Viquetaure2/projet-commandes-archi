@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="fenetre" prefHeight="743.0" prefWidth="1294.0" stylesheets="@decoration/jardinator.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox id="menu" layoutY="78.0" prefHeight="668.0" prefWidth="83.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.topAnchor="78.0">
+         <children>
+            <Button id="menu-amis" mnemonicParsing="false" prefHeight="76.0" prefWidth="83.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/menu/amis.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Compagnonnage" />
+               </tooltip>
+            </Button>
+            <Button id="menu-numerique" mnemonicParsing="false" prefHeight="75.0" prefWidth="105.0">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/menu/numerique.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Avancement" />
+               </tooltip>
+            </Button>
+            <Button id="menu-date" layoutX="10.0" layoutY="238.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="104.0">
+               <graphic>
+                  <ImageView id="menu-date" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/menu/date.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Arrosage  (date)" />
+               </tooltip>
+            </Button>
+            <Button id="menu-chat" layoutX="10.0" layoutY="392.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="104.0">
+               <graphic>
+                  <ImageView id="menu-argent" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/menu/chat.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Commande (semis)" />
+               </tooltip>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="44.0" layoutY="219.0" prefHeight="501.0" prefWidth="1207.0">
+         <children>
+            <GridPane id="semis-grille" gridLinesVisible="true" layoutX="66.0" layoutY="14.0" prefHeight="340.0" prefWidth="152.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="action-choisir-chemin" fx:id="choisirCarotte" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/pathBase.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button id="action-choisir-chemin2" fx:id="choisirCarotte4" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/pathTurn.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="action-choisir-foret" fx:id="choisirCarotte5" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/foret.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button id="action-choisir-maison" fx:id="choisirCarotte6" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.rowIndex="3">
+                     <graphic>
+                        <ImageView id="maison-image" cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/maison.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button id="action-choisir-riviere" fx:id="choisirCarotte7" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/riverBase.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="action-choisir-tresor" fx:id="choisirCarotte8" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/treasureChest.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button id="action-choisir-roches" fx:id="choisirCarotte9" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/roches.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button id="action-choisir-tour" fx:id="choisirCarotte10" mnemonicParsing="false" prefHeight="85.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="85.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@decoration/tiles/tour.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+               </children>
+            </GridPane>
+            <Rectangle id="jardin-terre" fx:id="jardinTerre" arcHeight="5.0" arcWidth="5.0" fill="#5b4f45" height="490.0" layoutX="293.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent;" width="700.0" />
+            <ImageView id="background" fitHeight="490.0" fitWidth="801.0" layoutX="293.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+            <GridPane id="map" gridLinesVisible="true" layoutX="293.0" layoutY="7.0" prefHeight="490.0" prefWidth="700.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="choisirCarotte71" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" />
+                  <Button fx:id="choisirCarotte711" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="1" />
+                  <Button fx:id="choisirCarotte712" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="2" />
+                  <Button fx:id="choisirCarotte713" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="3" />
+                  <Button fx:id="choisirCarotte714" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="4" />
+                  <Button fx:id="choisirCarotte7141" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="5" />
+                  <Button fx:id="choisirCarotte7142" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="6" />
+                  <Button fx:id="choisirCarotte7143" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte7144" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte7145" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte7146" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte7147" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte7148" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte7149" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                  <Button fx:id="choisirCarotte71410" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71411" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71412" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71413" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71414" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71415" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71416" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                  <Button fx:id="choisirCarotte71417" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71418" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71419" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71420" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71421" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71422" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71423" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                  <Button fx:id="choisirCarotte71424" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.rowIndex="4" />
+                  <Button fx:id="choisirCarotte71425" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button fx:id="choisirCarotte71426" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button fx:id="choisirCarotte71427" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="choisirCarotte71428" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <Button fx:id="choisirCarotte71429" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                  <Button fx:id="choisirCarotte71430" mnemonicParsing="false" prefHeight="124.0" prefWidth="100.0" textOverrun="CLIP" visible="false" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane id="entete" layoutX="-57.0" layoutY="-7.0" prefHeight="92.0" prefWidth="1352.0" AnchorPane.leftAnchor="-57.0" AnchorPane.rightAnchor="-1.0">
+         <children>
+            <Label layoutX="532.0" prefHeight="72.0" prefWidth="431.0" text="Battlemaps" textFill="#fff7f7">
+               <font>
+                  <Font name="FreeMono" size="70.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#7c7979" height="50.0" radius="24.5" width="50.0" />
+         </effect>
+      </Pane>
+      <GridPane gridLinesVisible="true" layoutX="126.0" layoutY="116.0" prefHeight="76.0" prefWidth="255.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="action-theme-plaine" fx:id="choisirCarotte1" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP">
+               <graphic>
+                  <ImageView cache="true" fitHeight="77.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/terrain/plaines.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="action-theme-neige" fx:id="choisirCarotte2" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView cache="true" fitHeight="77.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/terrain/neige.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="action-theme-desert" fx:id="choisirCarotte3" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView cache="true" fitHeight="77.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/terrain/desert.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="188.0" fitWidth="500.0" layoutX="438.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@decoration/scroll.png" />
+         </image>
+      </ImageView>
+      <Text id="title" layoutX="515.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER" wrappingWidth="345.9610023498535">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <GridPane gridLinesVisible="true" layoutX="1080.0" layoutY="92.0" prefHeight="200.0" prefWidth="200.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="bouton-choisir-jaune" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0">
+               <graphic>
+                  <ImageView cache="true" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/yellow.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="bouton-choisir-vert" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView cache="true" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/green.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="bouton-choisir-rouge" mnemonicParsing="false" prefHeight="107.0" prefWidth="94.0" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView cache="true" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/red.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button id="bouton-choisir-bleu" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView cache="true" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@decoration/blue.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
