@@ -4,7 +4,10 @@ import modele.THEME;
 import vue.VueBattlemaps;
 
 public class CommandeChoisirTerrain extends Commande{
+	
+	protected Carte carte;
 	protected THEME theme;
+	protected THEME ancientTheme;
 	
 	public CommandeChoisirTerrain(THEME theme) {
 		this.theme = theme;
@@ -13,6 +16,10 @@ public class CommandeChoisirTerrain extends Commande{
 	@Override
 	public void executer() {
 		VueBattlemaps.getInstance().changerTheme(theme);
+	}
+	
+	public void annuler() {
+		VueBattlemaps.getInstance().afficherTheme(ancientTheme);
 	}
 
 }

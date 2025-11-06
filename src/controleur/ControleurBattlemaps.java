@@ -28,8 +28,10 @@ public class ControleurBattlemaps extends Controleur{
 		
 	}
 	
-	TUILES tuileChoisi = null;
+	protected TUILES tuileChoisie = null;
+	protected Carte carte = new Carte();
 	COULEURS couleurChoisie = COULEURS.JAUNE;
+	Stack<Commande> historique = new Stack<Commande>();
 
 	public void notifierClicTitre(Text actionEditTitre) {
 		TextField textField = new TextField(actionEditTitre.getText());
@@ -52,24 +54,29 @@ public class ControleurBattlemaps extends Controleur{
 	}
 
 	public void notifierClicTuile(TUILES tuile) {
-		this.tuileChoisi = tuile;
+		this.tuileChoisie = tuile;
 	}
 
 	public void notifierClicCarte(int posX, int posY) {
-		Commande commande = new CommandePlacerMaison(this.tuileChoisi, this.couleurChoisie, posX, posY);
+		Commande commande = new CommandePlacerMaison(this.tuileChoisie, this.couleurChoisie, posX, posY);
 		commande.executer();
+		historique.add(commande);
 		
 	}
 	
 	public void notifierClicCouleur(COULEURS couleur) {
 		this.couleurChoisie = couleur;
 	}
-
-	Stack<Commande> historique = new Stack<Commande>();
 	
 	public void notifierClicTheme(THEME theme) {
 		Commande commande = new CommandeChoisirTerrain(theme);
 		commande.executer();
-		
+		historique.add(commande);
+	}
+
+	public void notifierActionUndo() {
+		if(!historique.isEmpty()) {
+			historique.pop().annuler();
+		}
 	}
 }

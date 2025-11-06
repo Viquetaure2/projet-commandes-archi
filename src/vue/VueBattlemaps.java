@@ -204,6 +204,17 @@ public class VueBattlemaps extends Vue {
 			    int rangee = (int) (posY / CellHauteur);
 				controleur.notifierClicCarte(col, rangee);
 			}});
+		
+		Button actionUndo = (Button)lookup("#action-undo");
+		actionUndo.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				controleur.notifierActionUndo();
+				
+			}
+			
+		})
 	}
 
 	public void placerTuile(TUILES tuileChoisi, COULEURS couleurChoisie, int posX, int posY) {
