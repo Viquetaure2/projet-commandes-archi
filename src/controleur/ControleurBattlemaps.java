@@ -7,13 +7,14 @@ import com.sun.media.jfxmedia.logging.Logger;
 import architecture.Controleur;
 import controleur.commande.Commande;
 import controleur.commande.CommandeChoisirTerrain;
-import controleur.commande.CommandePlacerMaison;
+import controleur.commande.CommandePlacerTuile;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import modele.COULEURS;
-import modele.THEME;
-import modele.TUILES;
+import modele.Carte;
+import modele.ThemeCarte;
+import modele.TuileCarte;
 import vue.VueBattlemaps;
 
 public class ControleurBattlemaps extends Controleur{
@@ -28,10 +29,11 @@ public class ControleurBattlemaps extends Controleur{
 		
 	}
 	
-	protected TUILES tuileChoisie = null;
+	protected TuileCarte.TUILES tuileChoisie = null;
 	protected Carte carte = new Carte();
 	COULEURS couleurChoisie = COULEURS.JAUNE;
 	Stack<Commande> historique = new Stack<Commande>();
+	Stack<Commande> annulations = new Stack<Commande>();
 
 	public void notifierClicTitre(Text actionEditTitre) {
 		TextField textField = new TextField(actionEditTitre.getText());
@@ -53,12 +55,12 @@ public class ControleurBattlemaps extends Controleur{
         });
 	}
 
-	public void notifierClicTuile(TUILES tuile) {
+	public void notifierClicTuile(TuileCarte.TUILES tuile) {
 		this.tuileChoisie = tuile;
 	}
 
 	public void notifierClicCarte(int posX, int posY) {
-		Commande commande = new CommandePlacerMaison(this.tuileChoisie, this.couleurChoisie, posX, posY);
+		Commande commande = new CommandePlacerTuile(this.tuileChoisie, this.couleurChoisie, posX, posY, carte);
 		commande.executer();
 		historique.add(commande);
 		
@@ -68,15 +70,25 @@ public class ControleurBattlemaps extends Controleur{
 		this.couleurChoisie = couleur;
 	}
 	
-	public void notifierClicTheme(THEME theme) {
-		Commande commande = new CommandeChoisirTerrain(theme);
+	public void notifierClicTheme(ThemeCarte.THEME theme) {
+		Commande commande = new CommandeChoisirTerrain(theme, carte);
 		commande.executer();
 		historique.add(commande);
 	}
 
 	public void notifierActionUndo() {
 		if(!historique.isEmpty()) {
-			historique.pop().annuler();
+			Commande commande = historique.pop();
+			commande.annuler();
+			annulations.add(commande);
+		}
+	}
+	
+	public void notifierActionRedo() {
+		if (!annulations.isEmpty()) {
+			Commande commande = annulations.pop();
+			commande.executer();
+			historique.add(commande);
 		}
 	}
 }

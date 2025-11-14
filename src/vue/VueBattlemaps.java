@@ -1,4 +1,6 @@
 package vue;
+import java.util.HashMap;
+
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Vue;
@@ -12,8 +14,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import modele.COULEURS;
-import modele.THEME;
-import modele.TUILES;
+import modele.ThemeCarte.THEME;
+import modele.TuileCarte.TUILES;
 public class VueBattlemaps extends Vue {
 
 	protected ControleurBattlemaps controleur;
@@ -205,17 +207,17 @@ public class VueBattlemaps extends Vue {
 				controleur.notifierClicCarte(col, rangee);
 			}});
 		
-		Button actionUndo = (Button)lookup("#action-undo");
+		/*Button actionUndo = (Button)lookup("#action-undo");
 		actionUndo.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg0) {
 				controleur.notifierActionUndo();
-				
 			}
-			
-		})
+		});*/
 	}
+	
+	protected HashMap<String, ImageView> atlasVisuelTuiles = new HashMap<String, ImageView>();
 
 	public void placerTuile(TUILES tuileChoisi, COULEURS couleurChoisie, int posX, int posY) {
 		String path = null;
@@ -259,8 +261,15 @@ public class VueBattlemaps extends Vue {
 		    GridPane.setColumnIndex(tuilePosee, posX);
 		    GridPane.setRowIndex(tuilePosee, posY);
 		    carte.getChildren().add(tuilePosee);
+		    atlasVisuelTuiles.put(posX + "-" + posY, tuilePosee);
 		}
 		
+	}
+	
+	public void retirerTuile(TUILES tuileChoisie, int x, int y) {
+		ImageView tuileRetiree = atlasVisuelTuiles.get(x + "-" + y);
+		GridPane carteVue = (GridPane)lookup("#map");
+		carteVue.getChildren().remove(tuileRetiree);
 	}
 
 	public void changerTheme(THEME theme) {
